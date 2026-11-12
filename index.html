@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Гражданство в Норвегии - мини-курс</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap">
+<style>
+:root {
+  --bg: #FAFAF8;
+  --bg2: #F0EEE9;
+  --fg: #1A1A18;
+  --fg2: #4A4A45;
+  --accent: #1B4332;
+  --accent2: #2D6A4F;
+  --gold: #C9A84C;
+  --border: #E0DDD6;
+  --card: #FFFFFF;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12130F;
+    --bg2: #1C1E18;
+    --fg: #F0EDE6;
+    --fg2: #A8A49A;
+    --accent: #52B788;
+    --accent2: #74C69D;
+    --gold: #D4AC5A;
+    --border: #2C2E28;
+    --card: #1C1E18;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12130F;
+  --bg2: #1C1E18;
+  --fg: #F0EDE6;
+  --fg2: #A8A49A;
+  --accent: #52B788;
+  --accent2: #74C69D;
+  --gold: #D4AC5A;
+  --border: #2C2E28;
+  --card: #1C1E18;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+
+/* HERO */
+.hero {
+  background: var(--accent);
+  padding-block: 72px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-flag {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(201,168,76,0.25);
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.78);
+  max-width: 520px;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+
+/* AUTHOR */
+.author-bar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding-block: 20px;
+}
+.author-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.author-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--fg);
+}
+.author-role {
+  font-size: 13px;
+  color: var(--fg2);
+}
+
+/* WHAT YOU GET */
+.section {
+  padding-block: 56px;
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1.2;
+  text-wrap: balance;
+  margin-bottom: 32px;
+}
+.modules {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.module {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.module-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--bg2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.module-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+.module-desc {
+  font-size: 14px;
+  color: var(--fg2);
+  line-height: 1.5;
+}
+
+/* DIVIDER */
+.divider {
+  height: 1px;
+  background: var(--border);
+}
+
+/* PRICING */
+.pricing-section {
+  padding-block: 56px;
+  background: var(--bg2);
+}
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+@media (max-width: 540px) {
+  .pricing-cards { grid-template-columns: 1fr; }
+}
+.price-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+.price-card.featured {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold);
+}
+.price-badge {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: #12130F;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.price-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--fg);
+}
+.price-amount {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--fg);
+  line-height: 1;
+}
+.price-amount span {
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--fg2);
+}
+.price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.price-features li {
+  font-size: 14px;
+  color: var(--fg2);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.price-features li::before {
+  content: '✓';
+  color: var(--accent2);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.1s;
+  line-height: 1;
+}
+.btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-featured {
+  background: var(--gold);
+  color: #12130F;
+}
+
+/* WHY */
+.why-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 8px;
+}
+.why-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.why-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.why-text strong {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+.why-text p {
+  font-size: 14px;
+  color: var(--fg2);
+  line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+  background: var(--accent);
+  padding-block: 32px;
+  text-align: center;
+}
+footer p {
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+}
+footer strong {
+  color: rgba(255,255,255,0.9);
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-flag">🇳🇴</span>
+    <div class="hero-tag">Мини-курс</div>
+    <h1>Гражданство в Норвегии</h1>
+    <p>Всё, что нужно знать о получении норвежского гражданства - простым языком от ассистента адвоката</p>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-bar">
+  <div class="container">
+    <div class="author-inner">
+      <div class="author-avatar">⚖️</div>
+      <div>
+        <div class="author-name">Татьяна Котова</div>
+        <div class="author-role">Ассистент норвежского адвоката · @norway_vzakone</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Программа курса</div>
+    <h2>Что вы узнаете</h2>
+    <div class="modules">
+      <div class="module">
+        <div class="module-icon">📋</div>
+        <div>
+          <div class="module-title">Требования и условия</div>
+          <div class="module-desc">Кто и когда может подать заявление на гражданство. Сроки проживания, языковые требования и другие условия</div>
+        </div>
+      </div>
+      <div class="module">
+        <div class="module-icon">📝</div>
+        <div>
+          <div class="module-title">Документы и заявление</div>
+          <div class="module-desc">Полный список необходимых документов. Пошаговое заполнение заявления без ошибок</div>
+        </div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🗣️</div>
+        <div>
+          <div class="module-title">Языковой тест и церемония</div>
+          <div class="module-desc">Как подготовиться к тесту по норвежскому. Что происходит после одобрения заявки</div>
+        </div>
+      </div>
+      <div class="module">
+        <div class="module-icon">❓</div>
+        <div>
+          <div class="module-title">Частые ошибки и отказы</div>
+          <div class="module-desc">Почему отказывают в гражданстве и как этого избежать. Разбор реальных ситуаций</div>
+        </div>
+      </div>
+      <div class="module">
+        <div class="module-icon">🔄</div>
+        <div>
+          <div class="module-title">Двойное гражданство</div>
+          <div class="module-desc">Можно ли сохранить российское гражданство. Что говорит норвежский закон в 2024 году</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Почему этот курс</div>
+    <h2>Информация из первых рук</h2>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-num">1</div>
+        <div class="why-text">
+          <strong>Юридическая точность</strong>
+          <p>Материал основан на реальной практике норвежского адвоката - не блогерские домыслы, а проверенная информация</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">2</div>
+        <div class="why-text">
+          <strong>На русском языке</strong>
+          <p>Объясняем сложное простыми словами без юридического жаргона</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">3</div>
+        <div class="why-text">
+          <strong>Актуальность 2024</strong>
+          <p>Только действующие требования и законы. Никакой устаревшей информации</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRICING -->
+<section class="pricing-section">
+  <div class="container">
+    <div class="section-label">Стоимость</div>
+    <h2>Выберите свой формат</h2>
+    <div class="pricing-cards">
+
+      <div class="price-card">
+        <div class="price-name">Базовый</div>
+        <div class="price-amount">449 <span>NOK</span></div>
+        <ul class="price-features">
+          <li>Доступ к материалам курса</li>
+          <li>Видеоуроки и конспекты</li>
+          <li>Чеклисты и шаблоны</li>
+        </ul>
+        <a href="https://tatsianakotava.minisite.ai/citizenship" target="_blank" class="btn btn-primary">Купить мини-курс</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Лучший выбор</div>
+        <div class="price-name">Расширенный</div>
+        <div class="price-amount">999 <span>NOK</span></div>
+        <ul class="price-features">
+          <li>Всё из базового формата</li>
+          <li>Разбор вашей ситуации</li>
+          <li>Ответы на вопросы</li>
+          <li>Поддержка при подаче</li>
+        </ul>
+        <a href="https://tatsianakotava.minisite.ai/citizenship" target="_blank" class="btn btn-featured">Купить мини-курс</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p><strong>@norway_vzakone</strong></p>
+    <p>Юридическая информация для русскоязычных в Норвегии</p>
+  </div>
+</footer>
+
+</body>
+</html>
